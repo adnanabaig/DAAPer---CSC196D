@@ -1,0 +1,16 @@
+{
+  "name": "daaper---csc196d",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@nextui-org/react": "^2.4.8",
+    "web3": "^4.15.0"
+  }
+}
