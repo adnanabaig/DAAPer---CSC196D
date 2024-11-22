@@ -1,6 +1,156 @@
 import React, { useState } from 'react';
 import { Grid, Card, CardContent, Typography, Button, TextField, FormHelperText, Snackbar, Alert, CircularProgress } from '@mui/material';
 import { motion } from 'framer-motion';
+import Web3 from 'web3';
+
+let contract_address = '0xd6c4083162dF988601329ecED1d813364baDEE90';
+let abi = [
+    {
+      "inputs": [],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "name": "certificates",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "cert_id",
+          "type": "string"
+        },
+        {
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "recipient",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "date",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bool",
+          "name": "revoked",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function",
+      "constant": true
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "name": "doesExist",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function",
+      "constant": true
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "id",
+          "type": "string"
+        },
+        {
+          "internalType": "address",
+          "name": "_recipient",
+          "type": "address"
+        }
+      ],
+      "name": "issueCert",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "id",
+          "type": "string"
+        }
+      ],
+      "name": "revokeCert",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "id",
+          "type": "string"
+        }
+      ],
+      "name": "verifyCertificate",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function",
+      "constant": true
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "id",
+          "type": "string"
+        }
+      ],
+      "name": "getCertDetails",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "recipient",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function",
+      "constant": true
+    }
+  ]
+
+  const web3 = new Web3(new Web3.providers.HttpProvider('http://localhost:8545'));
+  const contract = new web3.eth.Contract(abi, contract_address);
+
 
 const Issuer = () => {
     const [certificateData, setCertificateData] = useState({ recipient: '', title: '' });
@@ -13,7 +163,8 @@ const Issuer = () => {
         setCertificateData({ ...certificateData, [name]: value });
     };
 
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
+
         const newErrors = {
             recipient: certificateData.recipient === '',
             title: certificateData.title === '',
@@ -22,10 +173,16 @@ const Issuer = () => {
 
         if (!newErrors.recipient && !newErrors.title) {
             setLoading(true);
-            setTimeout(() => {
-                setLoading(false);
-                setSnackbar({ open: true, message: 'Certificate Issued Successfully!', severity: 'success' });
-            }, 2000);
+            try{
+             const recipient = certificateData.recipient ; 
+             const account =  await web3.eth.getAccounts();
+             await contract.methods.issueCert(certificateData.title, recipient).send({from: account[0]});  
+             setLoading(false);
+             setSnackbar({ open: true, message: 'Certificate Issued Successfully!', severity: 'success' });
+            } catch (error){
+                setSnackbar({ open: true, message: 'Failed to issue certificate', severity: 'success' });
+                console.log(error)
+            }
         } else {
             setSnackbar({ open: true, message: 'Please fill all fields correctly.', severity: 'error' });
         }
