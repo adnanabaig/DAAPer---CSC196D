@@ -1,6 +1,157 @@
 import React, { useState } from 'react';
 import { Grid, Card, CardContent, Typography, Button, TextField, FormHelperText, Snackbar, Alert } from '@mui/material';
 import { motion } from 'framer-motion';
+import Web3 from 'web3';
+
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+let contract_address = '0xD18729dA669c86bFB0801A90F2071419CC09b6C0';
+
+let abi = [
+    {
+      "inputs": [],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "name": "certificates",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "cert_id",
+          "type": "string"
+        },
+        {
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "recipient",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "date",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bool",
+          "name": "revoked",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function",
+      "constant": true
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "name": "doesExist",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function",
+      "constant": true
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "id",
+          "type": "string"
+        },
+        {
+          "internalType": "address",
+          "name": "_recipient",
+          "type": "address"
+        }
+      ],
+      "name": "issueCert",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "id",
+          "type": "string"
+        }
+      ],
+      "name": "revokeCert",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "id",
+          "type": "string"
+        }
+      ],
+      "name": "verifyCertificate",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function",
+      "constant": true
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "id",
+          "type": "string"
+        }
+      ],
+      "name": "getCertDetails",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "recipient",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function",
+      "constant": true
+    }
+  ]
+
+  const web3 = new Web3(new Web3.providers.HttpProvider('http://localhost:8545'));
+  const contract = new web3.eth.Contract(abi, contract_address);
 
 const Recipient = () => {
     const [certificateId, setCertificateId] = useState('');
@@ -8,23 +159,37 @@ const Recipient = () => {
     const [errors, setErrors] = useState({ certificateId: false, sharedWith: false });
     const [snackbar, setSnackbar] = useState({ open: false, message: '', severity: 'success' });
 
-    const handleView = () => {
+    const handleView = async () => {
         const newErrors = { certificateId: certificateId === '' };
         setErrors(newErrors);
 
         if (!newErrors.certificateId) {
-            setSnackbar({ open: true, message: `Viewing Certificate ID: ${certificateId}`, severity: 'info' });
+            try{
+                const details = await contract.methods.getCertDetails(certificateId).call();
+                setSnackbar({ open: true, message: `Certificate Owner: ${details.owner}, Recipient: ${details.recipient}`, severity: 'info' });
+            } catch (error) {
+                console.error(error);
+                setSnackbar({open: true, message: 'Failed to retrieve certificate details', severity: 'error'});
+            }
+            
         } else {
             setSnackbar({ open: true, message: 'Please enter a Certificate ID.', severity: 'error' });
         }
     };
 
     const handleShare = () => {
-        const newErrors = { sharedWith: sharedWith === '' };
+        const isAddressValid = web3.utils.isAddress(sharedWith);
+        const isEmailValid = emailRegex.test(sharedWith);
+        const newErrors = { sharedWith: sharedWith === '' || (!isAddressValid && !isEmailValid)};
         setErrors(newErrors);
 
         if (!newErrors.sharedWith) {
-            setSnackbar({ open: true, message: `Certificate shared with: ${sharedWith}`, severity: 'success' });
+            try{
+                setSnackbar({ open: true, message: `Certificate shared with: ${sharedWith}`, severity: 'success' });
+            } catch (error) {
+                console.error(error);
+                setSnackbar({open: true, message: 'Failed to share certificate.', severity: 'error'});
+            }
         } else {
             setSnackbar({ open: true, message: 'Please enter a recipient address.', severity: 'error' });
         }
