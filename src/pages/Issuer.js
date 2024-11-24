@@ -3,7 +3,7 @@ import { Grid, Card, CardContent, Typography, Button, TextField, FormHelperText,
 import { motion } from 'framer-motion';
 import Web3 from 'web3';
 
-let contract_address = '<insert contract address here>';
+let contract_address = '0x09d79356E2Cb4522e6B3639A514A7b2F229ad2e6';
 let abi = [
     {
       "inputs": [],
