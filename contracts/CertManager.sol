@@ -41,10 +41,10 @@ contract CertManager {
         emit CertRevoked(id, msg.sender);
     }
 
-      function verifyCertificate(string memory id) public view returns (bool) {
+    function verifyCertificate(string memory id) public view returns (bool exists, bool revoked) {
         require(doesExist[id], "Certificate does not exist");
-        return true;
-    }
+        return (true, certificates[id].revoked);
+    }   
 
 
     function getCertDetails(string memory id) public view returns (address owner, address recipient, bool revoked) {

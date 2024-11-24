@@ -1,18 +1,79 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Grid, Card, CardContent, Typography, Button, TextField, FormHelperText, Snackbar, Alert } from '@mui/material';
 import { motion } from 'framer-motion';
+import Web3 from 'web3';
+import CertManagerABI from '../contracts/CertManager.json'; // Adjust path as needed
 
 const Verifier = () => {
     const [certificateId, setCertificateId] = useState('');
     const [errors, setErrors] = useState({ certificateId: false });
     const [snackbar, setSnackbar] = useState({ open: false, message: '', severity: 'info' });
+    const [web3, setWeb3] = useState(null);
+    const [certManager, setCertManager] = useState(null);
+    const [account, setAccount] = useState('');
 
-    const handleVerify = () => {
+    useEffect(() => {
+        async function loadBlockchainData() {
+            if (window.ethereum) {
+                const web3Instance = new Web3(window.ethereum);
+                await window.ethereum.request({ method: 'eth_requestAccounts' });
+                setWeb3(web3Instance);
+
+                const accounts = await web3Instance.eth.getAccounts();
+                setAccount(accounts[0]);
+
+                const networkId = await web3Instance.eth.net.getId();
+                const networkData = CertManagerABI.networks[networkId];
+                if (networkData) {
+                    const contract = new web3Instance.eth.Contract(
+                        CertManagerABI.abi,
+                        networkData.address
+                    );
+                    setCertManager(contract);
+                } else {
+                    window.alert('Smart contract not deployed to detected network.');
+                }
+            } else {
+                window.alert('Please install MetaMask to use this feature.');
+            }
+        }
+
+        loadBlockchainData();
+    }, []);
+
+    const handleVerify = async () => {
+        if (!certManager) {
+            setSnackbar({ open: true, message: 'Contract is not yet loaded. Please wait.', severity: 'error' });
+            return;
+        }
+    
         const newErrors = { certificateId: certificateId === '' };
         setErrors(newErrors);
-
+    
         if (!newErrors.certificateId) {
-            setSnackbar({ open: true, message: `Verifying Certificate ID: ${certificateId}`, severity: 'info' });
+            try {
+                console.log("Attempting to verify certificate with ID:", certificateId);
+                
+                // Adjusting the function call to match the smart contract's returned structure
+                const result = await certManager.methods.verifyCertificate(certificateId).call({ from: account });
+                console.log("Verification result:", result);
+                
+                const exists = result.exists;
+                const revoked = result.revoked;
+    
+                if (exists) {
+                    if (revoked) {
+                        setSnackbar({ open: true, message: `Certificate ${certificateId} exists but is revoked.`, severity: 'warning' });
+                    } else {
+                        setSnackbar({ open: true, message: `Certificate ${certificateId} is valid.`, severity: 'success' });
+                    }
+                } else {
+                    setSnackbar({ open: true, message: `Certificate ${certificateId} is not valid.`, severity: 'error' });
+                }
+            } catch (error) {
+                console.error("Error during verification:", error);
+                setSnackbar({ open: true, message: 'Error verifying certificate.', severity: 'error' });
+            }
         } else {
             setSnackbar({ open: true, message: 'Please enter a Certificate ID.', severity: 'error' });
         }
