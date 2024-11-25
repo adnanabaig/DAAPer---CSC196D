@@ -16,6 +16,10 @@ contract CertManager {
     event CertIssued(string cert_id, address owner, address recipient);
     event CertRevoked(string cert_id, address owner);
 
+    uint256 certCount = 0;
+    uint256 verifiedCount = 0;
+    uint256 shareCount = 0;
+
     constructor() {
 
     }
@@ -31,6 +35,7 @@ contract CertManager {
             revoked: false
         });
         doesExist[id] = true;
+        certCount++;
         emit CertIssued(id, msg.sender, cert_recipient);
     }
 
@@ -41,8 +46,9 @@ contract CertManager {
         emit CertRevoked(id, msg.sender);
     }
 
-    function verifyCertificate(string memory id) public view returns (bool exists, bool revoked) {
+    function verifyCertificate(string memory id) public returns (bool exists, bool revoked) {
         require(doesExist[id], "Certificate does not exist");
+        verifiedCount++;
         return (true, certificates[id].revoked);
     }   
 
@@ -51,5 +57,17 @@ contract CertManager {
         require(doesExist[id], "Certificate does not exist");
         Cert memory cert = certificates[id];
         return (cert.owner, cert.recipient, cert.revoked);
+    }
+
+    function countIssued () public view returns (uint256){
+        return certCount;
+    }
+
+    function countVerified () public view returns (uint256){
+        return verifiedCount;
+    }
+
+    function countShares () public view returns (uint256){
+        return shareCount;
     }
 }
