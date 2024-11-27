@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Grid, Card, CardContent, Typography, Button, TextField, FormHelperText, Snackbar, Alert } from '@mui/material';
 import { motion } from 'framer-motion';
 import Web3 from 'web3';
-import CertManagerABI from '../contracts/CertManager.json'; // Adjust path as needed
+import CertManagerArtifact from '../contracts/CertManager.json'; // Import the artifact JSON file
 
 const Verifier = () => {
     const [certificateId, setCertificateId] = useState('');
@@ -23,11 +23,12 @@ const Verifier = () => {
                 setAccount(accounts[0]);
 
                 const networkId = await web3Instance.eth.net.getId();
-                const networkData = CertManagerABI.networks[networkId];
-                if (networkData) {
+                const deployedNetwork = CertManagerArtifact.networks[networkId];
+
+                if (deployedNetwork) {
                     const contract = new web3Instance.eth.Contract(
-                        CertManagerABI.abi,
-                        networkData.address
+                        CertManagerArtifact.abi,
+                        deployedNetwork.address // Fetch the address based on the network ID
                     );
                     setCertManager(contract);
                 } else {
@@ -46,21 +47,17 @@ const Verifier = () => {
             setSnackbar({ open: true, message: 'Contract is not yet loaded. Please wait.', severity: 'error' });
             return;
         }
-    
+
         const newErrors = { certificateId: certificateId === '' };
         setErrors(newErrors);
-    
+
         if (!newErrors.certificateId) {
             try {
                 console.log("Attempting to verify certificate with ID:", certificateId);
-                
-                // Adjusting the function call to match the smart contract's returned structure
-                const result = await certManager.methods.verifyCertificate(certificateId).call({ from: account });
-                console.log("Verification result:", result);
-                
-                const exists = result.exists;
-                const revoked = result.revoked;
-    
+
+                const { exists, revoked } = await certManager.methods.verifyCertificate(certificateId).call({ from: account });
+                console.log("Verification result:", exists, revoked);
+
                 if (exists) {
                     if (revoked) {
                         setSnackbar({ open: true, message: `Certificate ${certificateId} exists but is revoked.`, severity: 'warning' });
