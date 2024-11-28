@@ -10,12 +10,10 @@ const Issuer = () => {
     const [snackbar, setSnackbar] = useState({ open: false, message: '', severity: 'info' });
     const [loading, setLoading] = useState(false);
     const [account, setAccount] = useState('');
-
-    const certManagerAddress = "0x09d79356E2Cb4522e6B3639A514A7b2F229ad2e6"; // Replace with your deployed contract address
-    const certManager = new web3.eth.Contract(CertManagerABI.abi, certManagerAddress);
+    const [certManager, setCertManager] = useState(null);
 
     useEffect(() => {
-        async function loadAccount() {
+        async function loadBlockchainData() {
             try {
                 const accounts = await web3.eth.getAccounts();
                 if (accounts.length === 0) {
@@ -23,9 +21,19 @@ const Issuer = () => {
                 } else {
                     setAccount(accounts[0]);
                 }
+
+                const networkId = await web3.eth.net.getId();
+                if (CertManagerABI.networks[networkId]) {
+                    const certManagerAddress = CertManagerABI.networks[networkId].address;
+                    const contract = new web3.eth.Contract(CertManagerABI.abi, certManagerAddress);
+                    setCertManager(contract);
+                } else {
+                    console.error('Contract not deployed on this network.');
+                    setSnackbar({ open: true, message: 'Contract not deployed on the current network.', severity: 'error' });
+                }
             } catch (error) {
-                console.error("Failed to load accounts from MetaMask", error);
-                setSnackbar({ open: true, message: 'Failed to connect MetaMask. Please try again.', severity: 'error' });
+                console.error("Failed to load blockchain data", error);
+                setSnackbar({ open: true, message: 'Failed to connect MetaMask or load contract. Please try again.', severity: 'error' });
             }
         }
 
@@ -40,7 +48,7 @@ const Issuer = () => {
             });
         }
 
-        loadAccount();
+        loadBlockchainData();
     }, []);
 
     const handleChange = (e) => {
@@ -49,6 +57,11 @@ const Issuer = () => {
     };
 
     const handleSubmit = async () => {
+        if (!certManager) {
+            setSnackbar({ open: true, message: 'Contract is not yet loaded. Please wait.', severity: 'error' });
+            return;
+        }
+
         const newErrors = {
             id: certificateData.id === '',
             recipient: !web3.utils.isAddress(certificateData.recipient), // Validate address
