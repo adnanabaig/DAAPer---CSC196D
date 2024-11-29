@@ -1,21 +1,92 @@
 import React from 'react';
 import { Grid, Card, CardContent, Typography, Tooltip } from '@mui/material';
 import { motion } from 'framer-motion';
+import web3 from '../web3';
+import CertManagerABI from '../contracts/CertManager.json';
 
 const Dashboard = () => {
+    const [stats, setStats] = useState({
+        issued: 0,
+        verified: 0,
+        shared: 0,
+    });
+    const [certManager, setCertManager] = useState(null);
+    const [account, setAccount] = useState('');
+    const [snackbar, setSnackbar] = useState({open: false, message: '', severity: 'info'});
+
+    useEffect(() => {
+        async function loadBlockchainData() {
+            try {
+                const accounts = await web3.eth.getAccounts();
+                if(accounts.length === 0) {
+                    setSnackbar({open: true, message: 'Please connect to MetaMask.', severity: 'warning'});
+                } else {
+                    setAccount(accounts[0]);
+                }
+
+                const networkId = await web3.eth.net.getId();
+                if(CertManagerABI.networks[networkId]) {
+                    const certManagerAddress = CertManagerABI.networks[networkId].address;
+                    const contract = new web3.eth.Contract(CertManagerABI.abi, certManagerAddress);
+                    setCertManager(contract);
+                } else {
+                    console.error('Contract not deployed on this network.');
+                    setSnackbar({open: true, message: 'Contract not deployed on the current network.', severity: 'error' });
+                }
+            } catch (error) {
+                console.error("Failed to load blockchain data", error);
+                setSnackbar({open: true, message: 'Failed to connect MetaMask or load contract. Please try again.', severity: 'error'});
+            }
+        }
+
+        if (window.ethereum) {
+            window.ethereum.on('accountsChanged', function (accounts) {
+                if (accounts.length > 0) {
+                    setAccount(accounts[0]);
+                } else {
+                    setAccount('');
+                    setSnackbar({open: true, message: 'Please connect to MetaMask.', severity: 'warning'});
+                }
+            });
+        }
+
+        loadBlockchainData();
+    }, []);
+    
+    useEffect(() => {
+        if (certManager) {
+           fetchStats();
+        }
+    }, [certManager]);
+    
+    const fetchStats = async () => {
+        try {
+            const issued = await certManager.methods.countIssued().call();
+            const verified = await certManager.methods.countVerified().call();
+            const shared = await certManager.methods.countShares().call();
+    
+            setStats({
+                issued,
+                verified,
+                shared,
+            });
+        } catch (error) {
+            console.error("Error fetching stats:", error);
+            setSnackbar({ open: true, message: 'Error fetching statistics from the blockchain.', severity: 'error' });
+        }
+    };
+
     const statsVariants = {
         hover: { scale: 1.05, boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2)' },
     };
 
-    const stats = [
-        { label: 'Certificates Issued', value: '120' },
-        { label: 'Certificates Verified', value: '95' },
-        { label: 'Certificates Shared', value: '80' },
-    ];
-
     return (
         <Grid container spacing={3}>
-            {stats.map((stat, index) => (
+            {[
+                {label: 'Certificates Issued', value: stats.issued},
+                {label: 'Certificates Verified', value: stats.verfied},
+                {label: 'Certificates Shared', value: stats.shared},
+            ].map((stat, index) => (
                 <Grid item xs={12} md={4} key={index}>
                     <Tooltip title={`Details about ${stat.label}`} arrow>
                         <Card
