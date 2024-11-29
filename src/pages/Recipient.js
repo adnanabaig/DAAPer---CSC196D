@@ -1,181 +1,79 @@
-import React, { useState } from 'react';
-import { Grid, Card, CardContent, Typography, Button, TextField, FormHelperText, Snackbar, Alert } from '@mui/material';
+import React, { useState, useEffect } from 'react';
+import { Grid, Card, CardContent, Typography, Button, TextField, FormHelperText, Snackbar, Alert, CircularProgress } from '@mui/material';
 import { motion } from 'framer-motion';
-import Web3 from 'web3';
-
-const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-let contract_address = '0x09d79356E2Cb4522e6B3639A514A7b2F229ad2e6';
-
-let abi = [
-    {
-      "inputs": [],
-      "stateMutability": "nonpayable",
-      "type": "constructor"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "string",
-          "name": "",
-          "type": "string"
-        }
-      ],
-      "name": "certificates",
-      "outputs": [
-        {
-          "internalType": "string",
-          "name": "cert_id",
-          "type": "string"
-        },
-        {
-          "internalType": "address",
-          "name": "owner",
-          "type": "address"
-        },
-        {
-          "internalType": "address",
-          "name": "recipient",
-          "type": "address"
-        },
-        {
-          "internalType": "uint256",
-          "name": "date",
-          "type": "uint256"
-        },
-        {
-          "internalType": "bool",
-          "name": "revoked",
-          "type": "bool"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function",
-      "constant": true
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "string",
-          "name": "",
-          "type": "string"
-        }
-      ],
-      "name": "doesExist",
-      "outputs": [
-        {
-          "internalType": "bool",
-          "name": "",
-          "type": "bool"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function",
-      "constant": true
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "string",
-          "name": "id",
-          "type": "string"
-        },
-        {
-          "internalType": "address",
-          "name": "_recipient",
-          "type": "address"
-        }
-      ],
-      "name": "issueCert",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "string",
-          "name": "id",
-          "type": "string"
-        }
-      ],
-      "name": "revokeCert",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "string",
-          "name": "id",
-          "type": "string"
-        }
-      ],
-      "name": "verifyCertificate",
-      "outputs": [
-        {
-          "internalType": "bool",
-          "name": "",
-          "type": "bool"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function",
-      "constant": true
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "string",
-          "name": "id",
-          "type": "string"
-        }
-      ],
-      "name": "getCertDetails",
-      "outputs": [
-        {
-          "internalType": "address",
-          "name": "owner",
-          "type": "address"
-        },
-        {
-          "internalType": "address",
-          "name": "recipient",
-          "type": "address"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function",
-      "constant": true
-    }
-  ]
-
-  const web3 = new Web3(new Web3.providers.HttpProvider('http://localhost:8545'));
-  const contract = new web3.eth.Contract(abi, contract_address);
-
+import web3 from '../web3';
+import CertManagerABI from '../contracts/CertManager.json';
 const Recipient = () => {
     const [certificateId, setCertificateId] = useState('');
     const [sharedWith, setSharedWith] = useState('');
     const [errors, setErrors] = useState({ certificateId: false, sharedWith: false });
     const [snackbar, setSnackbar] = useState({ open: false, message: '', severity: 'success' });
+    const [account, setAccount] = useState('');
+    const [certificateDetails, setCertificateDetails] = useState(null);
 
-    const handleView = async () => {
-        const newErrors = { certificateId: certificateId === '' };
-        setErrors(newErrors);
 
-        if (!newErrors.certificateId) {
-            try{
-                const details = await contract.methods.getCertDetails(certificateId).call();
-                setSnackbar({ open: true, message: `Certificate Owner: ${details.owner}, Recipient: ${details.recipient}`, severity: 'info' });
-            } catch (error) {
-                console.error(error);
-                setSnackbar({open: true, message: 'Failed to retrieve certificate details', severity: 'error'});
-            }
-            
-        } else {
-            setSnackbar({ open: true, message: 'Please enter a Certificate ID.', severity: 'error' });
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const certManagerAddress = '0x94B4b7feD72d030c89aF4A18F7848969b82Bf34D';
+    const certManager = new web3.eth.Contract(CertManagerABI.abi, certManagerAddress);
+
+    useEffect(() => {
+      async function loadAccount() {
+          try {
+              const accounts = await web3.eth.getAccounts();
+              if (accounts.length === 0) {
+                  setSnackbar({ open: true, message: 'Please connect to MetaMask.', severity: 'warning' });
+              } else {
+                  setAccount(accounts[0]);
+              }
+          } catch (error) {
+              console.error("Failed to load accounts from MetaMask", error);
+              setSnackbar({ open: true, message: 'Failed to connect MetaMask. Please try again.', severity: 'error' });
+          }
+      }
+
+      if (window.ethereum) {
+          window.ethereum.on('accountsChanged', function (accounts) {
+              if (accounts.length > 0) {
+                  setAccount(accounts[0]);
+              } else {
+                  setAccount('');
+                  setSnackbar({ open: true, message: 'Please connect to MetaMask.', severity: 'warning' });
+              }
+          });
+      }
+
+      loadAccount();
+  }, []);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setCertificateId({ ...certificateId, [name]: value });
+};
+  const handleView = async () => {
+    const newErrors = { id: certificateId === '' };
+    setErrors(newErrors);
+
+    if (!newErrors.id) {
+        try {
+            const details = await certManager.methods.getCertDetails(certificateId).call({ from: account });
+
+            const { owner, recipient, revoked } = details;
+
+            setSnackbar({ 
+                open: true, 
+                message: `Certificate Details:\nOwner: ${owner}\nRecipient: ${recipient}\nRevoked: ${revoked ? 'Yes' : 'No'}`, 
+                severity: 'info' 
+            });
+        } catch (error) {
+            console.error(error);
+            setSnackbar({ open: true, message: 'Failed to retrieve certificate details', severity: 'error' });
         }
-    };
+    } else {
+        setSnackbar({ open: true, message: 'Please enter a Certificate ID.', severity: 'error' });
+    }
+};
+
+
 
     const handleShare = () => {
         const isAddressValid = web3.utils.isAddress(sharedWith);
