@@ -9,15 +9,14 @@ const Recipient = () => {
     const [errors, setErrors] = useState({ certificateId: false, sharedWith: false });
     const [snackbar, setSnackbar] = useState({ open: false, message: '', severity: 'success' });
     const [account, setAccount] = useState('');
-    const [certificateDetails, setCertificateDetails] = useState(null);
+    const [certManager, setCertManager] = useState(null);
 
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const certManagerAddress = '0x94B4b7feD72d030c89aF4A18F7848969b82Bf34D';
-    const certManager = new web3.eth.Contract(CertManagerABI.abi, certManagerAddress);
 
+    
     useEffect(() => {
-      async function loadAccount() {
+      async function loadBlockchainData() {
           try {
               const accounts = await web3.eth.getAccounts();
               if (accounts.length === 0) {
@@ -25,9 +24,19 @@ const Recipient = () => {
               } else {
                   setAccount(accounts[0]);
               }
+
+              const networkId = await web3.eth.net.getId();
+              if (CertManagerABI.networks[networkId]) {
+                  const certManagerAddress = CertManagerABI.networks[networkId].address;
+                  const contract = new web3.eth.Contract(CertManagerABI.abi, certManagerAddress);
+                  setCertManager(contract);
+              } else {
+                  console.error('Contract not deployed on this network.');
+                  setSnackbar({ open: true, message: 'Contract not deployed on the current network.', severity: 'error' });
+              }
           } catch (error) {
-              console.error("Failed to load accounts from MetaMask", error);
-              setSnackbar({ open: true, message: 'Failed to connect MetaMask. Please try again.', severity: 'error' });
+              console.error("Failed to load blockchain data", error);
+              setSnackbar({ open: true, message: 'Failed to connect MetaMask or load contract. Please try again.', severity: 'error' });
           }
       }
 
@@ -42,7 +51,7 @@ const Recipient = () => {
           });
       }
 
-      loadAccount();
+      loadBlockchainData();
   }, []);
 
   const handleChange = (e) => {
