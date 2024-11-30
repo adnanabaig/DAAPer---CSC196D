@@ -66,11 +66,11 @@ const Recipient = () => {
         try {
             const details = await certManager.methods.getCertDetails(certificateId).call({ from: account });
 
-            const { owner, recipient, revoked } = details;
+            const { owner, recipient, revoked, title } = details;
 
             setSnackbar({ 
                 open: true, 
-                message: `Certificate Details:\nOwner: ${owner}\nRecipient: ${recipient}\nRevoked: ${revoked ? 'Yes' : 'No'}`, 
+                message: `Certificate Details:\nOwner: ${owner}\nRecipient: ${recipient}\nTitle: ${title}\nRevoked: ${revoked ? 'Yes' : 'No' }`, 
                 severity: 'info' 
             });
         } catch (error) {

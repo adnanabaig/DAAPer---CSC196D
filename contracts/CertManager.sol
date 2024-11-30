@@ -8,6 +8,7 @@ contract CertManager {
         address recipient;
         uint256 date;
         bool revoked;
+        string title;
     }
 
     mapping(string => Cert) public certificates;
@@ -26,7 +27,7 @@ contract CertManager {
         shareCount= 0;
     }
 
-    function issueCert(string memory id, address cert_recipient) public {
+    function issueCert(string memory id, address cert_recipient, string memory titleIn) public {
         require(!doesExist[id], "Certificate already exists");
 
         certificates[id] = Cert({
@@ -34,7 +35,8 @@ contract CertManager {
             owner: msg.sender,
             recipient: cert_recipient,
             date: block.timestamp,
-            revoked: false
+            revoked: false,
+            title: titleIn
         });
         doesExist[id] = true;
         certCount++;
@@ -56,10 +58,10 @@ contract CertManager {
     }   
 
 
-    function getCertDetails(string memory id) public view returns (address owner, address recipient, bool revoked) {
+    function getCertDetails(string memory id) public view returns (address owner, address recipient, bool revoked, string memory title) {
         require(doesExist[id], "Certificate does not exist");
         Cert memory cert = certificates[id];
-        return (cert.owner, cert.recipient, cert.revoked);
+        return (cert.owner, cert.recipient, cert.revoked, cert.title);
     }
 
     function countIssued () public view returns (uint256){

@@ -166,7 +166,7 @@ const Verifier = () => {
                                 }}
                                 onClick={handleRevoke}
                             >
-                                Verify Now
+                                Revoke Now
                             </Button>
                         </CardContent>
                     </Card>
