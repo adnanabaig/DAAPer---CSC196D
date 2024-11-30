@@ -16,12 +16,14 @@ contract CertManager {
     event CertIssued(string cert_id, address owner, address recipient);
     event CertRevoked(string cert_id, address owner);
 
-    uint256 certCount = 0;
-    uint256 verifiedCount = 0;
-    uint256 shareCount = 0;
+    uint256 public certCount;
+    uint256 public verifiedCount;
+    uint256 public shareCount;
 
     constructor() {
-
+        certCount = 0;
+        verifiedCount = 0;
+        shareCount= 0;
     }
 
     function issueCert(string memory id, address cert_recipient) public {
