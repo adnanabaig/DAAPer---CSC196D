@@ -140,41 +140,10 @@ const Recipient = () => {
                         </CardContent>
                     </Card>
                 </Grid>
-                <Grid item xs={12} md={6}>
-                    <Card elevation={3} style={{ borderRadius: '12px' }}>
-                        <CardContent>
-                            <Typography variant="h4" gutterBottom style={{ textAlign: 'center' }}>
-                                Share Certificate
-                            </Typography>
-                            <TextField
-                                label="Share With (Email/Address)"
-                                fullWidth
-                                margin="normal"
-                                value={sharedWith}
-                                onChange={(e) => setSharedWith(e.target.value)}
-                                error={errors.sharedWith}
-                            />
-                            {errors.sharedWith && <FormHelperText error>Recipient Address is required.</FormHelperText>}
-                            <Button
-                                variant="contained"
-                                color="secondary"
-                                style={{
-                                    marginTop: '20px',
-                                    width: '100%',
-                                    borderRadius: '8px',
-                                    padding: '10px',
-                                }}
-                                onClick={handleShare}
-                            >
-                                Share Certificate
-                            </Button>
-                        </CardContent>
-                    </Card>
-                </Grid>
             </Grid>
             <Snackbar
                 open={snackbar.open}
-                autoHideDuration={3000}
+                autoHideDuration={6000}
                 onClose={() => setSnackbar({ ...snackbar, open: false })}
             >
                 <Alert onClose={() => setSnackbar({ ...snackbar, open: false })} severity={snackbar.severity}>

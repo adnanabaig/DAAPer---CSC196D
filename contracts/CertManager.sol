@@ -45,6 +45,7 @@ contract CertManager {
         require(doesExist[id], "Certificate doesn't exist");
         require(certificates[id].owner == msg.sender, "Not Owner of this cert");
         certificates[id].revoked = true;
+        certCount -= 1;
         emit CertRevoked(id, msg.sender);
     }
 

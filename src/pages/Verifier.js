@@ -55,7 +55,7 @@ const Verifier = () => {
             try {
                 console.log("Attempting to verify certificate with ID:", certificateId);
 
-                const { exists, revoked } = await certManager.methods.verifyCertificate(certificateId).call({ from: account });
+                const { exists, revoked } = await certManager.methods.verifyCertificate(certificateId).send({ from: account });
                 console.log("Verification result:", exists, revoked);
 
                 if (exists) {
@@ -70,6 +70,28 @@ const Verifier = () => {
             } catch (error) {
                 console.error("Error during verification:", error);
                 setSnackbar({ open: true, message: 'Error verifying certificate.', severity: 'error' });
+            }
+        } else {
+            setSnackbar({ open: true, message: 'Please enter a Certificate ID.', severity: 'error' });
+        }
+    };
+
+    const handleRevoke = async () => {
+        if (!certManager) {
+            setSnackbar({ open: true, message: 'Contract is not yet loaded. Please wait.', severity: 'error' });
+            return;
+        }
+
+        const newErrors = { certificateId: certificateId === '' };
+        setErrors(newErrors);
+
+        if (!newErrors.certificateId) {
+            try {
+                console.log("Attempting to revoke certificate with ID:", certificateId);
+                await certManager.methods.revokeCert(certificateId).send({ from: account });
+            } catch (error) {
+                console.error("Error during revokation:", error);
+                setSnackbar({ open: true, message: 'Error revoking certificate.', severity: 'error' });
             }
         } else {
             setSnackbar({ open: true, message: 'Please enter a Certificate ID.', severity: 'error' });
@@ -122,30 +144,38 @@ const Verifier = () => {
                     <Card elevation={3} style={{ borderRadius: '12px' }}>
                         <CardContent>
                             <Typography variant="h4" gutterBottom style={{ textAlign: 'center' }}>
-                                Verification History
+                                Revoke Certificate
                             </Typography>
+                            <TextField
+                                label="Certificate ID"
+                                fullWidth
+                                margin="normal"
+                                value={certificateId}
+                                onChange={(e) => setCertificateId(e.target.value)}
+                                error={errors.certificateId}
+                            />
+                            {errors.certificateId && <FormHelperText error>Certificate ID is required.</FormHelperText>}
                             <Button
                                 variant="contained"
-                                color="secondary"
+                                color="primary"
                                 style={{
                                     marginTop: '20px',
                                     width: '100%',
                                     borderRadius: '8px',
                                     padding: '10px',
                                 }}
-                                onClick={handleHistory}
+                                onClick={handleRevoke}
                             >
-                                View History
+                                Verify Now
                             </Button>
                         </CardContent>
                     </Card>
                 </Grid>
             </Grid>
-            <Snackbar
+            <Snackbar>
                 open={snackbar.open}
                 autoHideDuration={3000}
                 onClose={() => setSnackbar({ ...snackbar, open: false })}
-            >
                 <Alert onClose={() => setSnackbar({ ...snackbar, open: false })} severity={snackbar.severity}>
                     {snackbar.message}
                 </Alert>

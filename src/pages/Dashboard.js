@@ -90,7 +90,6 @@ const Dashboard = () => {
             {[
                 {label: 'Certificates Issued', value: stats.issued},
                 {label: 'Certificates Verified', value: stats.verified},
-                {label: 'Certificates Shared', value: stats.shared},
             ].map((stat, index) => (
                 <Grid item xs={12} md={4} key={index}>
                     <Tooltip title={`Details about ${stat.label}`} arrow>
