@@ -4083,20 +4083,20 @@
   "sourceMap": "60:1115:1:-:0;;;;;;;;;;;;;;;;;;;",
   "deployedSourceMap": "60:1115:1:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;140:49;;;;;;;;;;;;;:::i;:::-;;:::i;:::-;;;;;;;:::i;:::-;;;;;;;;873:299;;;;;;;;;;;;;:::i;:::-;;:::i;:::-;;749:83;;;;;;;;;;;;;:::i;:::-;;:::i;:::-;;94:39;;;;;;;;;;;;;:::i;:::-;;:::i;:::-;;;;;;;:::i;:::-;;;;;;;;573:142;;;;;;;;;;;;;:::i;:::-;;:::i;:::-;;;;;;;:::i;:::-;;;;;;;;230:302;;;;;;;;;;;;;:::i;:::-;;:::i;:::-;;140:49;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;873:299::-;955:7;:19;963:10;955:19;;;;;;;;;;;;;;;;;;;;;;;;;947:77;;;;;;;;;;;;:::i;:::-;;;;;;;;;1043:18;1062:13;1043:33;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;1035:67;;;;;;;;;;;;:::i;:::-;;;;;;;;;1159:5;1123:18;1142:13;1123:33;;;;;;:::i;:::-;;;;;;;;;;;;;;:41;;;;;;;;;;;;;;;;;;873:299;:::o;749:83::-;820:4;802:7;:15;810:6;802:15;;;;;;;;;;;;;;;;:22;;;;;;;;;;;;;;;;;;749:83;:::o;94:39::-;;;;;;;;;;;;;;;;;;;;;;:::o;573:142::-;650:4;674:18;693:13;674:33;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;667:40;;573:142;;;:::o;230:302::-;311:7;:19;319:10;311:19;;;;;;;;;;;;;;;;;;;;;;;;;303:76;;;;;;;;;;;;:::i;:::-;;;;;;;;;399:18;418:13;399:33;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;398:34;390:73;;;;;;;;;;;;:::i;:::-;;;;;;;;;520:4;484:18;503:13;484:33;;;;;;:::i;:::-;;;;;;;;;;;;;;:40;;;;;;;;;;;;;;;;;;230:302;:::o;7:344:5:-;;110:65;125:49;167:6;125:49;:::i;:::-;110:65;:::i;:::-;101:74;;198:6;191:5;184:21;236:4;229:5;225:16;274:3;265:6;260:3;256:16;253:25;250:2;;;291:1;288;281:12;250:2;304:41;338:6;333:3;328;304:41;:::i;:::-;91:260;;;;;;:::o;357:139::-;;441:6;428:20;419:29;;457:33;484:5;457:33;:::i;:::-;409:87;;;;:::o;516:273::-;;621:3;614:4;606:6;602:17;598:27;588:2;;639:1;636;629:12;588:2;679:6;666:20;704:79;779:3;771:6;764:4;756:6;752:17;704:79;:::i;:::-;695:88;;578:211;;;;;:::o;795:262::-;;903:2;891:9;882:7;878:23;874:32;871:2;;;919:1;916;909:12;871:2;962:1;987:53;1032:7;1023:6;1012:9;1008:22;987:53;:::i;:::-;977:63;;933:117;861:196;;;;:::o;1063:375::-;;1181:2;1169:9;1160:7;1156:23;1152:32;1149:2;;;1197:1;1194;1187:12;1149:2;1268:1;1257:9;1253:17;1240:31;1298:18;1290:6;1287:30;1284:2;;;1330:1;1327;1320:12;1284:2;1358:63;1413:7;1404:6;1393:9;1389:22;1358:63;:::i;:::-;1348:73;;1211:220;1139:299;;;;:::o;1444:109::-;1525:21;1540:5;1525:21;:::i;:::-;1520:3;1513:34;1503:50;;:::o;1559:377::-;;1693:39;1726:5;1693:39;:::i;:::-;1748:89;1830:6;1825:3;1748:89;:::i;:::-;1741:96;;1846:52;1891:6;1886:3;1879:4;1872:5;1868:16;1846:52;:::i;:::-;1923:6;1918:3;1914:16;1907:23;;1669:267;;;;;:::o;1942:377::-;;2105:67;2169:2;2164:3;2105:67;:::i;:::-;2098:74;;2202:34;2198:1;2193:3;2189:11;2182:55;2268:15;2263:2;2258:3;2254:12;2247:37;2310:2;2305:3;2301:12;2294:19;;2088:231;;;:::o;2325:319::-;;2488:67;2552:2;2547:3;2488:67;:::i;:::-;2481:74;;2585:23;2581:1;2576:3;2572:11;2565:44;2635:2;2630:3;2626:12;2619:19;;2471:173;;;:::o;2650:376::-;;2813:67;2877:2;2872:3;2813:67;:::i;:::-;2806:74;;2910:34;2906:1;2901:3;2897:11;2890:55;2976:14;2971:2;2966:3;2962:12;2955:36;3017:2;3012:3;3008:12;3001:19;;2796:230;;;:::o;3032:324::-;;3195:67;3259:2;3254:3;3195:67;:::i;:::-;3188:74;;3292:28;3288:1;3283:3;3279:11;3272:49;3347:2;3342:3;3338:12;3331:19;;3178:178;;;:::o;3362:275::-;;3516:95;3607:3;3598:6;3516:95;:::i;:::-;3509:102;;3628:3;3621:10;;3498:139;;;;:::o;3643:210::-;;3768:2;3757:9;3753:18;3745:26;;3781:65;3843:1;3832:9;3828:17;3819:6;3781:65;:::i;:::-;3735:118;;;;:::o;3859:419::-;;4063:2;4052:9;4048:18;4040:26;;4112:9;4106:4;4102:20;4098:1;4087:9;4083:17;4076:47;4140:131;4266:4;4140:131;:::i;:::-;4132:139;;4030:248;;;:::o;4284:419::-;;4488:2;4477:9;4473:18;4465:26;;4537:9;4531:4;4527:20;4523:1;4512:9;4508:17;4501:47;4565:131;4691:4;4565:131;:::i;:::-;4557:139;;4455:248;;;:::o;4709:419::-;;4913:2;4902:9;4898:18;4890:26;;4962:9;4956:4;4952:20;4948:1;4937:9;4933:17;4926:47;4990:131;5116:4;4990:131;:::i;:::-;4982:139;;4880:248;;;:::o;5134:419::-;;5338:2;5327:9;5323:18;5315:26;;5387:9;5381:4;5377:20;5373:1;5362:9;5358:17;5351:47;5415:131;5541:4;5415:131;:::i;:::-;5407:139;;5305:248;;;:::o;5559:283::-;;5625:2;5619:9;5609:19;;5667:4;5659:6;5655:17;5774:6;5762:10;5759:22;5738:18;5726:10;5723:34;5720:62;5717:2;;;5785:18;;:::i;:::-;5717:2;5825:10;5821:2;5814:22;5599:243;;;;:::o;5848:332::-;;6000:18;5992:6;5989:30;5986:2;;;6022:18;;:::i;:::-;5986:2;6107:4;6103:9;6096:4;6088:6;6084:17;6080:33;6072:41;;6168:4;6162;6158:15;6150:23;;5915:265;;;:::o;6186:99::-;;6272:5;6266:12;6256:22;;6245:40;;;:::o;6291:169::-;;6409:6;6404:3;6397:19;6449:4;6444:3;6440:14;6425:29;;6387:73;;;;:::o;6466:148::-;;6605:3;6590:18;;6580:34;;;;:::o;6620:96::-;;6686:24;6704:5;6686:24;:::i;:::-;6675:35;;6665:51;;;:::o;6722:90::-;;6799:5;6792:13;6785:21;6774:32;;6764:48;;;:::o;6818:126::-;;6895:42;6888:5;6884:54;6873:65;;6863:81;;;:::o;6950:154::-;7034:6;7029:3;7024;7011:30;7096:1;7087:6;7082:3;7078:16;7071:27;7001:103;;;:::o;7110:307::-;7178:1;7188:113;7202:6;7199:1;7196:13;7188:113;;;7287:1;7282:3;7278:11;7272:18;7268:1;7263:3;7259:11;7252:39;7224:2;7221:1;7217:10;7212:15;;7188:113;;;7319:6;7316:1;7313:13;7310:2;;;7399:1;7390:6;7385:3;7381:16;7374:27;7310:2;7159:258;;;;:::o;7423:180::-;7471:77;7468:1;7461:88;7568:4;7565:1;7558:15;7592:4;7589:1;7582:15;7609:122;7682:24;7700:5;7682:24;:::i;:::-;7675:5;7672:35;7662:2;;7721:1;7718;7711:12;7662:2;7652:79;:::o",
   "source": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\ncontract CertificateSystem {\r\n    mapping(address => bool) public issuers;\r\n    mapping(string => bool) public issuedCertificates;\r\n    \r\n    // Issue a certificate\r\n    function issueCertificate(string memory certificateID) public {\r\n        require(issuers[msg.sender], \"You are not authorized to issue certificates\");\r\n        require(!issuedCertificates[certificateID], \"Certificate already issued\");\r\n        \r\n        issuedCertificates[certificateID] = true;\r\n    }\r\n    \r\n    // Verify a certificate\r\n    function verifyCertificate(string memory certificateID) public view returns (bool) {\r\n        return issuedCertificates[certificateID];\r\n    }\r\n    \r\n    // Add an issuer\r\n    function addIssuer(address issuer) public {\r\n        issuers[issuer] = true;\r\n    }\r\n    \r\n    // Revoke a certificate\r\n    function revokeCertificate(string memory certificateID) public {\r\n        require(issuers[msg.sender], \"You are not authorized to revoke certificates\");\r\n        require(issuedCertificates[certificateID], \"Certificate not found\");\r\n        \r\n        issuedCertificates[certificateID] = false;\r\n    }\r\n}\r\n",
-  "sourcePath": "C:\\Users\\hashe\\OneDrive\\Documentos\\DAAPer---CSC196D\\contracts\\CertificateSystem.sol",
+  "sourcePath": "C:\\Users\\dhruv\\Downloads\\University\\CSC 196D\\FInal Project\\DAAPer---CSC196D\\contracts\\CertificateSystem.sol",
   "ast": {
     "absolutePath": "project:/contracts/CertificateSystem.sol",
     "exportedSymbols": {
       "CertificateSystem": [
-        268
+        316
       ]
     },
-    "id": 269,
+    "id": 317,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 180,
+        "id": 228,
         "literals": [
           "solidity",
           "^",
@@ -4112,9 +4112,9 @@
         "contractDependencies": [],
         "contractKind": "contract",
         "fullyImplemented": true,
-        "id": 268,
+        "id": 316,
         "linearizedBaseContracts": [
-          268
+          316
         ],
         "name": "CertificateSystem",
         "nodeType": "ContractDefinition",
@@ -4122,11 +4122,11 @@
           {
             "constant": false,
             "functionSelector": "38a7543e",
-            "id": 184,
+            "id": 232,
             "mutability": "mutable",
             "name": "issuers",
             "nodeType": "VariableDeclaration",
-            "scope": 268,
+            "scope": 316,
             "src": "94:39:1",
             "stateVariable": true,
             "storageLocation": "default",
@@ -4135,9 +4135,9 @@
               "typeString": "mapping(address => bool)"
             },
             "typeName": {
-              "id": 183,
+              "id": 231,
               "keyType": {
-                "id": 181,
+                "id": 229,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
                 "src": "102:7:1",
@@ -4153,7 +4153,7 @@
                 "typeString": "mapping(address => bool)"
               },
               "valueType": {
-                "id": 182,
+                "id": 230,
                 "name": "bool",
                 "nodeType": "ElementaryTypeName",
                 "src": "113:4:1",
@@ -4168,11 +4168,11 @@
           {
             "constant": false,
             "functionSelector": "03dac147",
-            "id": 188,
+            "id": 236,
             "mutability": "mutable",
             "name": "issuedCertificates",
             "nodeType": "VariableDeclaration",
-            "scope": 268,
+            "scope": 316,
             "src": "140:49:1",
             "stateVariable": true,
             "storageLocation": "default",
@@ -4181,9 +4181,9 @@
               "typeString": "mapping(string => bool)"
             },
             "typeName": {
-              "id": 187,
+              "id": 235,
               "keyType": {
-                "id": 185,
+                "id": 233,
                 "name": "string",
                 "nodeType": "ElementaryTypeName",
                 "src": "148:6:1",
@@ -4199,7 +4199,7 @@
                 "typeString": "mapping(string => bool)"
               },
               "valueType": {
-                "id": 186,
+                "id": 234,
                 "name": "bool",
                 "nodeType": "ElementaryTypeName",
                 "src": "158:4:1",
@@ -4213,7 +4213,7 @@
           },
           {
             "body": {
-              "id": 215,
+              "id": 263,
               "nodeType": "Block",
               "src": "292:240:1",
               "statements": [
@@ -4222,21 +4222,21 @@
                     "arguments": [
                       {
                         "baseExpression": {
-                          "id": 194,
+                          "id": 242,
                           "name": "issuers",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 184,
+                          "referencedDeclaration": 232,
                           "src": "311:7:1",
                           "typeDescriptions": {
                             "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
                             "typeString": "mapping(address => bool)"
                           }
                         },
-                        "id": 197,
+                        "id": 245,
                         "indexExpression": {
                           "expression": {
-                            "id": 195,
+                            "id": 243,
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
@@ -4247,7 +4247,7 @@
                               "typeString": "msg"
                             }
                           },
-                          "id": 196,
+                          "id": 244,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -4273,7 +4273,7 @@
                       },
                       {
                         "hexValue": "596f7520617265206e6f7420617574686f72697a656420746f20697373756520636572746966696361746573",
-                        "id": 198,
+                        "id": 246,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -4299,7 +4299,7 @@
                           "typeString": "literal_string \"You are not authorized to issue certificates\""
                         }
                       ],
-                      "id": 193,
+                      "id": 241,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
@@ -4313,7 +4313,7 @@
                         "typeString": "function (bool,string memory) pure"
                       }
                     },
-                    "id": 199,
+                    "id": 247,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -4328,7 +4328,7 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 200,
+                  "id": 248,
                   "nodeType": "ExpressionStatement",
                   "src": "303:76:1"
                 },
@@ -4336,7 +4336,7 @@
                   "expression": {
                     "arguments": [
                       {
-                        "id": 205,
+                        "id": 253,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -4347,24 +4347,24 @@
                         "src": "398:34:1",
                         "subExpression": {
                           "baseExpression": {
-                            "id": 202,
+                            "id": 250,
                             "name": "issuedCertificates",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 188,
+                            "referencedDeclaration": 236,
                             "src": "399:18:1",
                             "typeDescriptions": {
                               "typeIdentifier": "t_mapping$_t_string_memory_ptr_$_t_bool_$",
                               "typeString": "mapping(string memory => bool)"
                             }
                           },
-                          "id": 204,
+                          "id": 252,
                           "indexExpression": {
-                            "id": 203,
+                            "id": 251,
                             "name": "certificateID",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 190,
+                            "referencedDeclaration": 238,
                             "src": "418:13:1",
                             "typeDescriptions": {
                               "typeIdentifier": "t_string_memory_ptr",
@@ -4389,7 +4389,7 @@
                       },
                       {
                         "hexValue": "436572746966696361746520616c726561647920697373756564",
-                        "id": 206,
+                        "id": 254,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -4415,7 +4415,7 @@
                           "typeString": "literal_string \"Certificate already issued\""
                         }
                       ],
-                      "id": 201,
+                      "id": 249,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
@@ -4429,7 +4429,7 @@
                         "typeString": "function (bool,string memory) pure"
                       }
                     },
-                    "id": 207,
+                    "id": 255,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -4444,37 +4444,37 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 208,
+                  "id": 256,
                   "nodeType": "ExpressionStatement",
                   "src": "390:73:1"
                 },
                 {
                   "expression": {
-                    "id": 213,
+                    "id": 261,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "baseExpression": {
-                        "id": 209,
+                        "id": 257,
                         "name": "issuedCertificates",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 188,
+                        "referencedDeclaration": 236,
                         "src": "484:18:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_mapping$_t_string_memory_ptr_$_t_bool_$",
                           "typeString": "mapping(string memory => bool)"
                         }
                       },
-                      "id": 211,
+                      "id": 259,
                       "indexExpression": {
-                        "id": 210,
+                        "id": 258,
                         "name": "certificateID",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 190,
+                        "referencedDeclaration": 238,
                         "src": "503:13:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_string_memory_ptr",
@@ -4496,7 +4496,7 @@
                     "operator": "=",
                     "rightHandSide": {
                       "hexValue": "74727565",
-                      "id": 212,
+                      "id": 260,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -4516,30 +4516,30 @@
                       "typeString": "bool"
                     }
                   },
-                  "id": 214,
+                  "id": 262,
                   "nodeType": "ExpressionStatement",
                   "src": "484:40:1"
                 }
               ]
             },
             "functionSelector": "a90547a6",
-            "id": 216,
+            "id": 264,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "issueCertificate",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 191,
+              "id": 239,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 190,
+                  "id": 238,
                   "mutability": "mutable",
                   "name": "certificateID",
                   "nodeType": "VariableDeclaration",
-                  "scope": 216,
+                  "scope": 264,
                   "src": "256:27:1",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -4548,7 +4548,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 189,
+                    "id": 237,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "256:6:1",
@@ -4563,12 +4563,12 @@
               "src": "255:29:1"
             },
             "returnParameters": {
-              "id": 192,
+              "id": 240,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "292:0:1"
             },
-            "scope": 268,
+            "scope": 316,
             "src": "230:302:1",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -4576,31 +4576,31 @@
           },
           {
             "body": {
-              "id": 227,
+              "id": 275,
               "nodeType": "Block",
               "src": "656:59:1",
               "statements": [
                 {
                   "expression": {
                     "baseExpression": {
-                      "id": 223,
+                      "id": 271,
                       "name": "issuedCertificates",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 188,
+                      "referencedDeclaration": 236,
                       "src": "674:18:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_mapping$_t_string_memory_ptr_$_t_bool_$",
                         "typeString": "mapping(string memory => bool)"
                       }
                     },
-                    "id": 225,
+                    "id": 273,
                     "indexExpression": {
-                      "id": 224,
+                      "id": 272,
                       "name": "certificateID",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 218,
+                      "referencedDeclaration": 266,
                       "src": "693:13:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_memory_ptr",
@@ -4618,31 +4618,31 @@
                       "typeString": "bool"
                     }
                   },
-                  "functionReturnParameters": 222,
-                  "id": 226,
+                  "functionReturnParameters": 270,
+                  "id": 274,
                   "nodeType": "Return",
                   "src": "667:40:1"
                 }
               ]
             },
             "functionSelector": "8b23d875",
-            "id": 228,
+            "id": 276,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "verifyCertificate",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 219,
+              "id": 267,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 218,
+                  "id": 266,
                   "mutability": "mutable",
                   "name": "certificateID",
                   "nodeType": "VariableDeclaration",
-                  "scope": 228,
+                  "scope": 276,
                   "src": "600:27:1",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -4651,7 +4651,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 217,
+                    "id": 265,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "600:6:1",
@@ -4666,16 +4666,16 @@
               "src": "599:29:1"
             },
             "returnParameters": {
-              "id": 222,
+              "id": 270,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 221,
+                  "id": 269,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 228,
+                  "scope": 276,
                   "src": "650:4:1",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -4684,7 +4684,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 220,
+                    "id": 268,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "650:4:1",
@@ -4698,7 +4698,7 @@
               ],
               "src": "649:6:1"
             },
-            "scope": 268,
+            "scope": 316,
             "src": "573:142:1",
             "stateMutability": "view",
             "virtual": false,
@@ -4706,37 +4706,37 @@
           },
           {
             "body": {
-              "id": 239,
+              "id": 287,
               "nodeType": "Block",
               "src": "791:41:1",
               "statements": [
                 {
                   "expression": {
-                    "id": 237,
+                    "id": 285,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "baseExpression": {
-                        "id": 233,
+                        "id": 281,
                         "name": "issuers",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 184,
+                        "referencedDeclaration": 232,
                         "src": "802:7:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
                           "typeString": "mapping(address => bool)"
                         }
                       },
-                      "id": 235,
+                      "id": 283,
                       "indexExpression": {
-                        "id": 234,
+                        "id": 282,
                         "name": "issuer",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 230,
+                        "referencedDeclaration": 278,
                         "src": "810:6:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -4758,7 +4758,7 @@
                     "operator": "=",
                     "rightHandSide": {
                       "hexValue": "74727565",
-                      "id": 236,
+                      "id": 284,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -4778,30 +4778,30 @@
                       "typeString": "bool"
                     }
                   },
-                  "id": 238,
+                  "id": 286,
                   "nodeType": "ExpressionStatement",
                   "src": "802:22:1"
                 }
               ]
             },
             "functionSelector": "20694db0",
-            "id": 240,
+            "id": 288,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "addIssuer",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 231,
+              "id": 279,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 230,
+                  "id": 278,
                   "mutability": "mutable",
                   "name": "issuer",
                   "nodeType": "VariableDeclaration",
-                  "scope": 240,
+                  "scope": 288,
                   "src": "768:14:1",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -4810,7 +4810,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 229,
+                    "id": 277,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "768:7:1",
@@ -4826,12 +4826,12 @@
               "src": "767:16:1"
             },
             "returnParameters": {
-              "id": 232,
+              "id": 280,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "791:0:1"
             },
-            "scope": 268,
+            "scope": 316,
             "src": "749:83:1",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -4839,7 +4839,7 @@
           },
           {
             "body": {
-              "id": 266,
+              "id": 314,
               "nodeType": "Block",
               "src": "936:236:1",
               "statements": [
@@ -4848,21 +4848,21 @@
                     "arguments": [
                       {
                         "baseExpression": {
-                          "id": 246,
+                          "id": 294,
                           "name": "issuers",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 184,
+                          "referencedDeclaration": 232,
                           "src": "955:7:1",
                           "typeDescriptions": {
                             "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
                             "typeString": "mapping(address => bool)"
                           }
                         },
-                        "id": 249,
+                        "id": 297,
                         "indexExpression": {
                           "expression": {
-                            "id": 247,
+                            "id": 295,
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
@@ -4873,7 +4873,7 @@
                               "typeString": "msg"
                             }
                           },
-                          "id": 248,
+                          "id": 296,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -4899,7 +4899,7 @@
                       },
                       {
                         "hexValue": "596f7520617265206e6f7420617574686f72697a656420746f207265766f6b6520636572746966696361746573",
-                        "id": 250,
+                        "id": 298,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -4925,7 +4925,7 @@
                           "typeString": "literal_string \"You are not authorized to revoke certificates\""
                         }
                       ],
-                      "id": 245,
+                      "id": 293,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
@@ -4939,7 +4939,7 @@
                         "typeString": "function (bool,string memory) pure"
                       }
                     },
-                    "id": 251,
+                    "id": 299,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -4954,7 +4954,7 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 252,
+                  "id": 300,
                   "nodeType": "ExpressionStatement",
                   "src": "947:77:1"
                 },
@@ -4963,24 +4963,24 @@
                     "arguments": [
                       {
                         "baseExpression": {
-                          "id": 254,
+                          "id": 302,
                           "name": "issuedCertificates",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 188,
+                          "referencedDeclaration": 236,
                           "src": "1043:18:1",
                           "typeDescriptions": {
                             "typeIdentifier": "t_mapping$_t_string_memory_ptr_$_t_bool_$",
                             "typeString": "mapping(string memory => bool)"
                           }
                         },
-                        "id": 256,
+                        "id": 304,
                         "indexExpression": {
-                          "id": 255,
+                          "id": 303,
                           "name": "certificateID",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 242,
+                          "referencedDeclaration": 290,
                           "src": "1062:13:1",
                           "typeDescriptions": {
                             "typeIdentifier": "t_string_memory_ptr",
@@ -5000,7 +5000,7 @@
                       },
                       {
                         "hexValue": "4365727469666963617465206e6f7420666f756e64",
-                        "id": 257,
+                        "id": 305,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -5026,7 +5026,7 @@
                           "typeString": "literal_string \"Certificate not found\""
                         }
                       ],
-                      "id": 253,
+                      "id": 301,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
@@ -5040,7 +5040,7 @@
                         "typeString": "function (bool,string memory) pure"
                       }
                     },
-                    "id": 258,
+                    "id": 306,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -5055,37 +5055,37 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 259,
+                  "id": 307,
                   "nodeType": "ExpressionStatement",
                   "src": "1035:67:1"
                 },
                 {
                   "expression": {
-                    "id": 264,
+                    "id": 312,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "baseExpression": {
-                        "id": 260,
+                        "id": 308,
                         "name": "issuedCertificates",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 188,
+                        "referencedDeclaration": 236,
                         "src": "1123:18:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_mapping$_t_string_memory_ptr_$_t_bool_$",
                           "typeString": "mapping(string memory => bool)"
                         }
                       },
-                      "id": 262,
+                      "id": 310,
                       "indexExpression": {
-                        "id": 261,
+                        "id": 309,
                         "name": "certificateID",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 242,
+                        "referencedDeclaration": 290,
                         "src": "1142:13:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_string_memory_ptr",
@@ -5107,7 +5107,7 @@
                     "operator": "=",
                     "rightHandSide": {
                       "hexValue": "66616c7365",
-                      "id": 263,
+                      "id": 311,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -5127,30 +5127,30 @@
                       "typeString": "bool"
                     }
                   },
-                  "id": 265,
+                  "id": 313,
                   "nodeType": "ExpressionStatement",
                   "src": "1123:41:1"
                 }
               ]
             },
             "functionSelector": "142e1542",
-            "id": 267,
+            "id": 315,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "revokeCertificate",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 243,
+              "id": 291,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 242,
+                  "id": 290,
                   "mutability": "mutable",
                   "name": "certificateID",
                   "nodeType": "VariableDeclaration",
-                  "scope": 267,
+                  "scope": 315,
                   "src": "900:27:1",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -5159,7 +5159,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 241,
+                    "id": 289,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "900:6:1",
@@ -5174,19 +5174,19 @@
               "src": "899:29:1"
             },
             "returnParameters": {
-              "id": 244,
+              "id": 292,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "936:0:1"
             },
-            "scope": 268,
+            "scope": 316,
             "src": "873:299:1",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "public"
           }
         ],
-        "scope": 269,
+        "scope": 317,
         "src": "60:1115:1"
       }
     ],
@@ -5197,51 +5197,105 @@
     "version": "0.8.0+commit.c7dfd78e.Emscripten.clang"
   },
   "networks": {
-    "1732836828399": {
+    "1732424981432": {
       "events": {},
       "links": {},
-      "address": "0x4f1d6A1FF537515480930231638A164C765dEFDe",
-      "transactionHash": "0x89e486e9a4d9afdd914335a2e0606550495676eb9cc2c29cb35e00d0b348360f"
+      "address": "0x6562Dd85BCEFf1a52dC357386E33333032dB24E4",
+      "transactionHash": "0xcd7e0c6fe44d96cd1f0de4b48526f10f949b64a52ef0272f990edf34c78d22bb"
     },
-    "1732837123215": {
+    "1732427648008": {
       "events": {},
       "links": {},
-      "address": "0xf26Cae77f4916c287c9251195DC82B0d642D0687",
-      "transactionHash": "0xe79f32947368ba9add423b1b570deced2e3d80ac9a24775818e1060f5d0571e5"
+      "address": "0xC76fcDeA4F38ED1390d8298E280AFd74cCFC35aA",
+      "transactionHash": "0x0fcb85ff346591148eeb52e777a6ea0155ff55d1442a4aebf6e37462de826a2e"
     },
-    "1732840499135": {
+    "1732671989454": {
       "events": {},
       "links": {},
-      "address": "0x19Eb03A9c0B36dA8cdB39D365a473c07DD701C06",
-      "transactionHash": "0xd933ead8ad63cf99d6c22f57eca11708f22065536bb86e2f4f77d1454ae90ad5"
+      "address": "0x5D0afF7b260324f203968177F3bdd04b87E51DC9",
+      "transactionHash": "0x97c289540f994787586e7e9fd1f912e9fbadb6d3d76c26ddb4ab84098cd196d4"
     },
-    "1732911654497": {
+    "1732675212880": {
       "events": {},
       "links": {},
-      "address": "0x901958903e5707cec8beDe8b435D3Cf21677117e",
-      "transactionHash": "0x5c228fb3fc8cbbaa868d3580982b5e54c73405223e984869ed8f32f4c3ce7186"
+      "address": "0x05e280280e960f455f686a660382DBa14bb7Dbb8",
+      "transactionHash": "0x2149b754586bc620eb9cce0d214beae1d677554e24e690ae178ed8ffee6c55d1"
     },
-    "1732912763770": {
+    "1732675609256": {
       "events": {},
       "links": {},
-      "address": "0x86C3982D5563c005ECed897B13B40a9625Ee3631",
-      "transactionHash": "0x2bd36dd5eb587ef7bc565a5ce6c37f6e9db536febd4f0310cab64cc019751486"
+      "address": "0xB94eF5e9697787Ebe214fede12D373DBF3eBa0dB",
+      "transactionHash": "0xae3ecf44c757a0510f817bd7591f34f457730b2a6825801329719357bc050cda"
     },
-    "1732913297671": {
+    "1732676062684": {
       "events": {},
       "links": {},
-      "address": "0x777d2508A75a245CD48E3963a2d4bb57d26eAa1a",
-      "transactionHash": "0x682cd5227f5b9639d8e31897b9d93bff85fe366c7837812c81a063a96ae9ee82"
+      "address": "0x29B28550f786f6d29513F94eeE098Ab6a32084B6",
+      "transactionHash": "0x66aa2e8556f5724e7c529ab8a221de1c2926d28da97549761fff335e1676d02a"
     },
-    "1732913906540": {
+    "1732676947963": {
       "events": {},
       "links": {},
-      "address": "0x02b998e8FDD58e29790811386b14C11712728B14",
-      "transactionHash": "0xe938be7160e9cb3715855d578cb8be649f166421e98883adcf2d094b87054077"
+      "address": "0xa0E24791aAD17c11c97221A8e595bB29E4B2954e",
+      "transactionHash": "0x848dba00e11d8bfd475fff5689b4c5b4599805a540a39e658a5cfd8c6448fb71"
+    },
+    "1732677712887": {
+      "events": {},
+      "links": {},
+      "address": "0x3ECaAA72289b1660281fC8CcFD859f7b49675d82",
+      "transactionHash": "0x59779bbc9e47b9b386f040b43b1012e449888910fd2f3767e36bea4a723867f0"
+    },
+    "1732678269191": {
+      "events": {},
+      "links": {},
+      "address": "0xFA5Db01C3b63BF5514556Dc7112f03A42700663d",
+      "transactionHash": "0xca5999fac94535b7f74a1204ae0930a37c3f339f3470d35fb969f6098b759f29"
+    },
+    "1732679203660": {
+      "events": {},
+      "links": {},
+      "address": "0x841a0B5479e4978f9884f4974534A92f4E2b9b6e",
+      "transactionHash": "0xaa7d0706ca0e3b8a7ea502c7aa13b92b2175a5b4b9539f3692c44da55f8f8b5c"
+    },
+    "1732679886926": {
+      "events": {},
+      "links": {},
+      "address": "0xF800B5e62E3a3AafCA2212C0F322a4b71DeDF05F",
+      "transactionHash": "0xff0e47f3300ee82dd02c662702b2c66ba32177661a7fcf932a5df75d235b7dd2"
+    },
+    "1732835043940": {
+      "events": {},
+      "links": {},
+      "address": "0xd4a87c1Ac0Cce810B9FaE4E16F437Af3dE6F6E98",
+      "transactionHash": "0xb9bad07065e038f66723fce0bf690dc876dc6b6c8b869d16a581565a487bc5fa"
+    },
+    "1732836654700": {
+      "events": {},
+      "links": {},
+      "address": "0x724482F59548C70133072Dce993e3C006D2010D7",
+      "transactionHash": "0x745c254cb8fd601d2e97937cf85606d4f53c23c6f52373c182f17c70a0b3ae47"
+    },
+    "1732997229530": {
+      "events": {},
+      "links": {},
+      "address": "0x104E4A08AcC65b886151c386f30addE8a054d691",
+      "transactionHash": "0x659e12ae5ca1fe20d9ea550441dada03f5ec117e956760e094219812ac95e229"
+    },
+    "1732999813398": {
+      "events": {},
+      "links": {},
+      "address": "0x14B9139D164E90896CF53c340829e59A3fCb9b2c",
+      "transactionHash": "0x5d0c2e3f3b10ef1945c5c2df94af1a7cb071578c29efc57334e8565d9932e395"
+    },
+    "1733000616939": {
+      "events": {},
+      "links": {},
+      "address": "0xA1524Af87B54EfE86bA275ACe58801e8a6Bea4B5",
+      "transactionHash": "0xc7a1a1d826695404f2402fe1d3979e1d7452f40dfcc3d89d0366600b65703033"
     }
   },
   "schemaVersion": "3.4.16",
-  "updatedAt": "2024-11-29T20:58:47.913Z",
+  "updatedAt": "2024-11-30T21:04:18.079Z",
   "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",

@@ -55,18 +55,21 @@ const Verifier = () => {
             try {
                 console.log("Attempting to verify certificate with ID:", certificateId);
 
-                const { exists, revoked } = await certManager.methods.verifyCertificate(certificateId).call({ from: account });
-                console.log("Verification result:", exists, revoked);
-
-                if (exists) {
-                    if (revoked) {
-                        setSnackbar({ open: true, message: `Certificate ${certificateId} exists but is revoked.`, severity: 'warning' });
-                    } else {
-                        setSnackbar({ open: true, message: `Certificate ${certificateId} is valid.`, severity: 'success' });
-                    }
-                } else {
-                    setSnackbar({ open: true, message: `Certificate ${certificateId} is not valid.`, severity: 'error' });
-                }
+                // Change to .send() to ensure blockchain state changes
+                await certManager.methods.verifyCertificate(certificateId)
+                    .send({ from: account, gas: 300000 }) // Adding a gas limit for send
+                    .on('transactionHash', (hash) => {
+                        console.log('Verification transaction hash:', hash);
+                        setSnackbar({ open: true, message: 'Verification transaction sent, waiting for confirmation...', severity: 'info' });
+                    })
+                    .on('receipt', (receipt) => {
+                        setSnackbar({ open: true, message: `Certificate ${certificateId} verified successfully!`, severity: 'success' });
+                        console.log('Verification receipt:', receipt);
+                    })
+                    .on('error', (error) => {
+                        console.error("Error during verification:", error);
+                        setSnackbar({ open: true, message: 'Error verifying certificate. Please check the console.', severity: 'error' });
+                    });
             } catch (error) {
                 console.error("Error during verification:", error);
                 setSnackbar({ open: true, message: 'Error verifying certificate.', severity: 'error' });
@@ -74,10 +77,6 @@ const Verifier = () => {
         } else {
             setSnackbar({ open: true, message: 'Please enter a Certificate ID.', severity: 'error' });
         }
-    };
-
-    const handleHistory = () => {
-        setSnackbar({ open: true, message: 'Fetching Verification History...', severity: 'info' });
     };
 
     return (
@@ -114,28 +113,6 @@ const Verifier = () => {
                                 onClick={handleVerify}
                             >
                                 Verify Now
-                            </Button>
-                        </CardContent>
-                    </Card>
-                </Grid>
-                <Grid item xs={12} md={6}>
-                    <Card elevation={3} style={{ borderRadius: '12px' }}>
-                        <CardContent>
-                            <Typography variant="h4" gutterBottom style={{ textAlign: 'center' }}>
-                                Verification History
-                            </Typography>
-                            <Button
-                                variant="contained"
-                                color="secondary"
-                                style={{
-                                    marginTop: '20px',
-                                    width: '100%',
-                                    borderRadius: '8px',
-                                    padding: '10px',
-                                }}
-                                onClick={handleHistory}
-                            >
-                                View History
                             </Button>
                         </CardContent>
                     </Card>
