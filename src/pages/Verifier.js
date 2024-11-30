@@ -79,6 +79,28 @@ const Verifier = () => {
         }
     };
 
+    const handleRevoke = async () => {
+        if (!certManager) {
+            setSnackbar({ open: true, message: 'Contract is not yet loaded. Please wait.', severity: 'error' });
+            return;
+        }
+
+        const newErrors = { certificateId: certificateId === '' };
+        setErrors(newErrors);
+
+        if (!newErrors.certificateId) {
+            try {
+                console.log("Attempting to revoke certificate with ID:", certificateId);
+                await certManager.methods.revokeCert(certificateId).send({ from: account });
+            } catch (error) {
+                console.error("Error during revokation:", error);
+                setSnackbar({ open: true, message: 'Error revoking certificate.', severity: 'error' });
+            }
+        } else {
+            setSnackbar({ open: true, message: 'Please enter a Certificate ID.', severity: 'error' });
+        }
+    };
+
     return (
         <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -117,12 +139,42 @@ const Verifier = () => {
                         </CardContent>
                     </Card>
                 </Grid>
+                <Grid item xs={12} md={6}>
+                    <Card elevation={3} style={{ borderRadius: '12px' }}>
+                        <CardContent>
+                            <Typography variant="h4" gutterBottom style={{ textAlign: 'center' }}>
+                                Revoke Certificate
+                            </Typography>
+                            <TextField
+                                label="Certificate ID"
+                                fullWidth
+                                margin="normal"
+                                value={certificateId}
+                                onChange={(e) => setCertificateId(e.target.value)}
+                                error={errors.certificateId}
+                            />
+                            {errors.certificateId && <FormHelperText error>Certificate ID is required.</FormHelperText>}
+                            <Button
+                                variant="contained"
+                                color="primary"
+                                style={{
+                                    marginTop: '20px',
+                                    width: '100%',
+                                    borderRadius: '8px',
+                                    padding: '10px',
+                                }}
+                                onClick={handleRevoke}
+                            >
+                                Revoke Now
+                            </Button>
+                        </CardContent>
+                    </Card>
+                </Grid>
             </Grid>
-            <Snackbar
+            <Snackbar>
                 open={snackbar.open}
                 autoHideDuration={3000}
                 onClose={() => setSnackbar({ ...snackbar, open: false })}
-            >
                 <Alert onClose={() => setSnackbar({ ...snackbar, open: false })} severity={snackbar.severity}>
                     {snackbar.message}
                 </Alert>

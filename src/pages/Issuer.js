@@ -72,7 +72,7 @@ const Issuer = () => {
         if (!newErrors.id && !newErrors.recipient && !newErrors.title) {
             setLoading(true);
             try {
-                await certManager.methods.issueCert(certificateData.id, certificateData.recipient)
+                await certManager.methods.issueCert(certificateData.id, certificateData.recipient, certificateData.title)
                     .send({ from: account, gas: 3000000 }) // Adding a gas limit here
                     .on('transactionHash', (hash) => {
                         console.log('Transaction Hash:', hash);
