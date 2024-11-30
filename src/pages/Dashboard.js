@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Grid, Card, CardContent, Typography, Tooltip } from '@mui/material';
 import { motion } from 'framer-motion';
 import web3 from '../web3';
@@ -13,6 +13,8 @@ const Dashboard = () => {
     const [certManager, setCertManager] = useState(null);
     const [account, setAccount] = useState('');
     const [snackbar, setSnackbar] = useState({open: false, message: '', severity: 'info'});
+    const [loading, setLoading] = useState(false);
+
 
     useEffect(() => {
         async function loadBlockchainData() {
@@ -55,26 +57,29 @@ const Dashboard = () => {
     
     useEffect(() => {
         if (certManager) {
-           fetchStats();
+            const fetchStats = async () => {
+                try {
+                    setLoading(true);
+                    let issued = await certManager.methods.countIssued().call();
+                    let verified = await certManager.methods.countVerified().call();
+                    let shared = await certManager.methods.countShares().call();
+        
+                    setStats({
+                        issued,
+                        verified,
+                        shared,
+                    });
+                } catch (error) {
+                    console.error("Error fetching stats:", error);
+                    setSnackbar({ open: true, message: 'Error fetching statistics from the blockchain.', severity: 'error' });
+                } finally {
+                    setLoading(false);
+                }
+            };
+            fetchStats();
         }
     }, [certManager]);
     
-    const fetchStats = async () => {
-        try {
-            const issued = await certManager.methods.countIssued().call();
-            const verified = await certManager.methods.countVerified().call();
-            const shared = await certManager.methods.countShares().call();
-    
-            setStats({
-                issued,
-                verified,
-                shared,
-            });
-        } catch (error) {
-            console.error("Error fetching stats:", error);
-            setSnackbar({ open: true, message: 'Error fetching statistics from the blockchain.', severity: 'error' });
-        }
-    };
 
     const statsVariants = {
         hover: { scale: 1.05, boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2)' },
@@ -84,7 +89,7 @@ const Dashboard = () => {
         <Grid container spacing={3}>
             {[
                 {label: 'Certificates Issued', value: stats.issued},
-                {label: 'Certificates Verified', value: stats.verfied},
+                {label: 'Certificates Verified', value: stats.verified},
                 {label: 'Certificates Shared', value: stats.shared},
             ].map((stat, index) => (
                 <Grid item xs={12} md={4} key={index}>
