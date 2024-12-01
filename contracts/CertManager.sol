@@ -15,7 +15,8 @@ contract CertManager {
     mapping(string => bool) public doesExist;
 
     event CertIssued(string cert_id, address owner, address recipient);
-    event CertRevoked(string cert_id, address owner);
+    event CertRevoked(string cert_id, bool revoked);
+    event CertVerify(string cert_id, bool revoked);
 
     uint256 public certCount;
     uint256 public verifiedCount;
@@ -48,13 +49,13 @@ contract CertManager {
         require(certificates[id].owner == msg.sender, "Not Owner of this cert");
         certificates[id].revoked = true;
         certCount -= 1;
-        emit CertRevoked(id, msg.sender);
+        emit CertRevoked(id, certificates[id].revoked);
     }
 
-    function verifyCertificate(string memory id) public returns (bool exists, bool revoked) {
+    function verifyCertificate(string memory id) public {
         require(doesExist[id], "Certificate does not exist");
         verifiedCount++;
-        return (true, certificates[id].revoked);
+        emit CertVerify(id, certificates[id].revoked);
     }   
 
 

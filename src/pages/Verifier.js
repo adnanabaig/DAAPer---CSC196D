@@ -65,6 +65,14 @@ const Verifier = () => {
                     .on('receipt', (receipt) => {
                         setSnackbar({ open: true, message: `Certificate ${certificateId} verified successfully!`, severity: 'success' });
                         console.log('Verification receipt:', receipt);
+
+                        const event = receipt.events['CertVerify'];
+                        const { id, revoked } = event.returnValues;
+                        if(revoked){
+                            setSnackbar({ open: true, message: 'Certificate is revoked.', severity: 'warning' });
+                        } else {
+                            setSnackbar({ open: true, message: 'Certificate is valid.', severity: 'info' });
+                        }   
                     })
                     .on('error', (error) => {
                         console.error("Error during verification:", error);
@@ -91,7 +99,22 @@ const Verifier = () => {
         if (!newErrors.certificateId) {
             try {
                 console.log("Attempting to revoke certificate with ID:", certificateId);
-                await certManager.methods.revokeCert(certificateId).send({ from: account });
+                await certManager.methods.revokeCert(certificateId)
+                    .send({ from: account, gas: 300000})
+                    .on('transactionHash', (hash) => {
+                        console.log('Revocation transaction hash:', hash);
+                        setSnackbar({ open: true, message: 'Revocation transaction sent, waiting for confirmation...', severity: 'info' });
+                    })
+                    .on('receipt', (receipt) => {
+                        console.log('Revocation receipt:', receipt);
+                        const event = receipt.events['CertRevoked'];
+                        const { id, revoked } = event.returnValues;
+                        if(revoked){
+                        setSnackbar({ open: true, message: 'Certificate has been revoked.', severity: 'info' });
+                        }else{
+                        setSnackbar({ open: true, message: 'Only the original issuer may revoke.', severity: 'error' });
+                        }   
+                    });
             } catch (error) {
                 console.error("Error during revokation:", error);
                 setSnackbar({ open: true, message: 'Error revoking certificate.', severity: 'error' });
