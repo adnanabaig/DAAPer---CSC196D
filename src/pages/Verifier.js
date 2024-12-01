@@ -171,10 +171,11 @@ const Verifier = () => {
                     </Card>
                 </Grid>
             </Grid>
-            <Snackbar>
+            <Snackbar
                 open={snackbar.open}
-                autoHideDuration={3000}
+                autoHideDuration={6000}
                 onClose={() => setSnackbar({ ...snackbar, open: false })}
+            >
                 <Alert onClose={() => setSnackbar({ ...snackbar, open: false })} severity={snackbar.severity}>
                     {snackbar.message}
                 </Alert>
