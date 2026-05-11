@@ -1,6 +1,8 @@
 # DAAPer---CSC196D 
 # Blockchain Certificate System DApp
 
+Decentralized academic credential system — Solidity smart contracts, IPFS, React
+
 Prerequisites and Dependencies
 
 Node.js (v14 or above)
